@@ -272,16 +272,56 @@ const availableProduce = [
 
 
 function SeasonalProduceList(){
+  const product = {
+    width: "220px",
+    marginLeft: "15px",
+    border: "2px solid #000",
+    padding: "10px",
+    marginBottom: "20px",
+    borderRadius: "4px",
+    backgroundColor: "rgba(226, 226, 199, 0.8)"
+  }
+  const monthlyListStyle = {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center"
+
+  }
+  const currentMonthStyle = {
+    backgroundColor: "rgba(226, 226, 113, 0.8)"
+  }
+  function currentMonth(){
+    let today = new Date();
+    return today.getMonth()
+  };
+  const month = currentMonth();
+   console.log(typeof month);
+
   return (
-    <div>
+    <div style={monthlyListStyle}>
       {availableProduce.map((seasonalProduct, index) => {
-        // if(seasonalProduct.month == "November") {
-          return(<SeasonalProduct
-            month={seasonalProduct.month}
-            selection={seasonalProduct.selection}
-            key={index}/>
+        console.log(index);
+        if(index == month) {
+          return(
+            <div style={Object.assign({}, product, currentMonthStyle)}>
+              <SeasonalProduct
+              month={seasonalProduct.month}
+              selection={seasonalProduct.selection}
+              key={index}/>
+            </div>
+          )
+        }
+         else {
+          return(
+            <div style={product}>
+              <SeasonalProduct
+                month={seasonalProduct.month}
+                selection={seasonalProduct.selection}
+                key={index}/>
+            </div>
+
           );
-        // }
+        }
       }
       )}
 

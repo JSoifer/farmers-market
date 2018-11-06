@@ -7,11 +7,15 @@ function Homeview(){
     container: {
       display: 'flex',
       flexDirection: 'column',
-      alignItems: 'center',
+      alignItems: "center",
+      backgroundImage: "url('https://images.pexels.com/photos/1300972/pexels-photo-1300972.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')"
     },
-    locations: {
-      width: '60vw',
-      border: '2px solid #000'
+    mainTitleStyles: {
+      marginBottom: "35px",
+      fontSize: "3em",
+      color: "white",
+      padding: "50px",
+      textShadow: "2px 2px black"
 
     }
 
@@ -19,15 +23,9 @@ function Homeview(){
   }
   return (
     <div style={styles.container}>
-      <h1>Avery's Organics</h1>
-      <div className='homeview'>
-        <style jsx>{`
-            .homeview {
-              display: flex;
-
-            }
-            `}</style>
-          <div style={styles.locations}>
+      <h1 style={styles.mainTitleStyles}>Avery's Organics</h1>
+      <div>
+          <div>
           <LocationList/>
         </div>
         <div>

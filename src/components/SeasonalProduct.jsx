@@ -2,19 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function SeasonalProduct(props){
-  const product = {
-    marginLeft: "30px",
-    border: "2px solid #000",
-    padding: "10px",
-    marginBottom: "20px",
-    borderRadius: "4px"
+  const listStyle = {
+    height: "30vh",
+    display: "flex",
+    flexDirection: "column",
+    flexWrap: "wrap",
+    paddingLeft: "10px",
   }
+  const itemStyle = {
+    marginLeft: "15px"
+  }
+  const listHeading = {
+    display: "flex",
+    justifyContent: "center"
+  }
+
   return (
-    <div style={product}>
-      <h2>{props.month}</h2>
-      <ul>
+    <div>
+      <h2 style={listHeading}>{props.month}</h2>
+      <ul style={listStyle}>
         {props.selection.map((select, index) =>
-          <li key={index}>{select}</li>
+          <li style={itemStyle} key={index}>{select}</li>
         )}
       </ul>
     </div>

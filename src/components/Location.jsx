@@ -2,23 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Location(props){
-  const locations = {
-    borderBottom: "2px solid gray",
-    paddingLeft: "10px"
+
+  const dayStyle = {
+    fontSize: '1.3em'
+  }
+  const locationStyle = {
+    fontSize: '1.1em'
   }
   return (
-    <div style={locations} className='locationDiv'>
-      <style jsx>{`
-          .locationDiv {
-            display: flex;
-            flex-direction: column;
-          }
-      `}</style>
-      <h2>{props.day}</h2>
-      <h3>{props.location}</h3>
-      <p>{props.hours}</p>
-      <p>{props.booth}</p>
-      <hr/>
+    <div>
+
+      <h2 style={dayStyle}>{props.day}</h2>
+      <h3 style={locationStyle}>Location: {props.location}</h3>
+      <p>Hours: {props.hours}</p>
+      <p>Booth: {props.booth}</p>
 
     </div>
   );

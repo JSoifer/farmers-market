@@ -41,15 +41,57 @@ const masterLocationList = [
 ];
 
 function LocationList(){
+
+  function currentDay() {
+    let today = new Date();
+    return today.getDay()
+  };
+  const day = currentDay();
+  const locations = {
+    width: 'calc(93vw/7)',
+    marginLeft: '1vw',
+    border: '2px solid #000',
+    paddingLeft: "10px",
+    marginBottom: "20px",
+    borderRadius: "4px",
+    backgroundColor: "rgba(215, 235, 242, 0.8)"
+  }
+  const LocationListStyles = {
+    display: "flex"
+  }
+
+  const currentDayStyle = {
+    backgroundColor: "rgba(67, 99, 109, 0.8)"
+  }
   return (
-    <div>
-      
-      {masterLocationList.map((location, index) =>
-        <Location day={location.day}
-          location={location.location}
-          hours={location.hours}
-          booth={location.booth}
-          key={index}/>
+    <div style={LocationListStyles}>
+      {masterLocationList.map((location, index) => {
+        if(index == day) {
+          return(
+            <div style={Object.assign({}, locations, currentDayStyle)}>
+              <Location day={location.day}
+                location={location.location}
+                hours={location.hours}
+                booth={location.booth}
+                key={index}/>
+            </div>
+          )
+        } else {
+          return(
+            <div style={locations}>
+              <Location day={location.day}
+                location={location.location}
+                hours={location.hours}
+                booth={location.booth}
+                key={index}/>
+            </div>
+
+          )
+
+        }
+
+      }
+
       )}
     </div>
   );
